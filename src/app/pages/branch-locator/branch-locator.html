@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+<main class="branch-locator-page">
+  <div class="hero-container position-relative overflow-hidden d-flex align-items-center">
+    <!-- Map Background -->
+    <div class="map-overlay"></div>
+    <div class="map-bg"></div>
+    
+    <!-- Hero Content -->
+    <div class="container position-relative z-index-2 pt-5">
+      <div class="row align-items-center min-vh-75">
+        <div class="col-lg-6 text-white pt-5">
+          <h1 class="display-3 fw-bold mb-4 font-secondary">Our National Reach</h1>
+          <p class="fs-5 mb-5 opacity-90 pe-lg-5">
+            Your nearest True Load branch with ease! <br>
+            You can find below the closest location for all your freight and logistics needs. 
+            We're committed to providing tailored services and support, wherever you are.
+          </p>
+
+          <!-- Search & Location Buttons -->
+          <div class="d-flex flex-wrap align-items-center gap-4">
+            <!-- State Search -->
+            <div class="search-box position-relative">
+              <i class="bi bi-search position-absolute start-0 top-50 translate-middle-y ms-4 text-secondary"></i>
+              <input type="text" class="form-control rounded-pill border-0 shadow-lg ps-5 py-3 fs-5" placeholder="State Name">
+            </div>
+
+            <!-- Current Location -->
+            <div class="d-flex align-items-center gap-3 current-location-trigger">
+              <button class="location-btn rounded-circle d-flex align-items-center justify-content-center shadow-lg">
+                <i class="bi bi-geo-alt-fill fs-4"></i>
+              </button>
+              <span class="fw-bold fs-5">Use My Current Location</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 position-relative d-none d-lg-block">
+          <!-- Floating UI Elements or more map nodes could go here -->
+          <div class="map-nodes">
+            <!-- Simulated nodes like in screenshot -->
+            <div class="node node-1 shadow"></div>
+            <div class="node node-2 shadow"></div>
+            <div class="node node-3 shadow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

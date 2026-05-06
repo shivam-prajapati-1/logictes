@@ -1,0 +1,232 @@
+.tracking-header-bar {
+  background-color: #55ada0; /* Teal from screenshot */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tracking-header-bar .logo-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: -1px;
+}
+
+.cursor-pointer { cursor: pointer; }
+.hover-opacity:hover { opacity: 0.8; }
+
+/* Black Modal Styles */
+.black-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  backdrop-filter: blur(5px); /* Soft blur effect */
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black-modal-content {
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  background-color: #fff; /* White background */
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 2.5rem;
+  line-height: 1;
+  z-index: 10;
+}
+
+.modal-title-serif {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.custom-tracking-input {
+  border: 1px solid #ddd;
+}
+
+.custom-tracking-input input {
+  font-size: 1.1rem;
+}
+
+.custom-tracking-input button {
+  background-color: #55ada0;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.tracking-page-content {
+  background-color: #fff;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tracking-page-content .container {
+  max-width: 1000px; /* Reduced width to match screenshot */
+  margin: 0 auto;
+}
+.tracking-header-labels {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.lr-label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.status-label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.text-atc-teal {
+  color: #55ada0 !important; /* Teal from screenshot */
+}
+
+/* Timeline */
+.tracking-timeline-container {
+  padding: 40px 0;
+}
+
+.timeline-row {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.timeline-line-active {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  height: 4px;
+  background-color: #ddd; /* Initially same, will be teal if active */
+  z-index: 2;
+  background-color: #55ada0;
+}
+
+.timeline-step {
+  width: 18%;
+  z-index: 3;
+  position: relative;
+}
+
+.step-icon-box {
+  width: 80px;
+  height: 80px;
+  background-color: #bcbcbc; /* Grey from screenshot */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 4px;
+  font-size: 2.5rem;
+}
+
+.step-icon-box.current {
+  background-color: #55ada0; /* Teal for delivered */
+}
+
+.lr-icon-text {
+  font-weight: bold;
+  font-size: 1.8rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-status-text {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.2;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-step:last-child .step-status-text {
+  color: #55ada0;
+  font-weight: bold;
+}
+
+.step-date {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Info Sections */
+.info-section {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 0; /* Sharp corners as in screenshot */
+}
+
+.section-header-teal {
+  background-color: #55ada0;
+  font-size: 1.1rem;
+  padding: 8px 0;
+}
+
+.section-body {
+  font-size: 0.95rem;
+}
+
+.info-row {
+  border-bottom: none; /* No row borders in screenshot */
+}
+
+.info-row .col-4 {
+  padding-left: 20px;
+}
+
+.info-row .col-7 {
+  padding-right: 20px;
+}
+
+@media (max-width: 992px) {
+  .step-icon-box {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+  .timeline-line, .timeline-line-active {
+    top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tracking-timeline-container {
+    overflow-x: auto;
+  }
+  .timeline-row {
+    min-width: 800px;
+  }
+}

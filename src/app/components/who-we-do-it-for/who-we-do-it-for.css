@@ -1,0 +1,84 @@
+.who-we-do-it-for {
+  min-height: 700px;
+  background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.section-title {
+  font-family: var(--font-secondary);
+  letter-spacing: -2px;
+}
+
+.industry-grid {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.industry-col {
+  transition: background 0.3s ease;
+}
+
+.industry-col:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.icon-lg {
+  font-size: 2.5rem;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.industry-item {
+  cursor: pointer;
+}
+
+.industry-item h5 {
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.industry-item:hover .icon-lg {
+  transform: scale(1.1) translateY(-5px);
+  color: var(--atc-gold);
+}
+
+.industry-item:hover h5 {
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  .industry-grid .col-md-2 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .industry-grid .col-md-2 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .display-3 {
+    font-size: 2.5rem;
+  }
+}

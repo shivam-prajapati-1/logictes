@@ -1,0 +1,217 @@
+<app-navbar></app-navbar>
+
+<main class="contact-page">
+  <!-- SECTION 1: Contact Hero -->
+  <section class="contact-hero position-relative">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+    <div class="hero-overlay-mask h-100 d-flex align-items-center justify-content-center">
+      <div class="contact-box p-5 text-center text-white shadow-lg rounded-4">
+        <h1 class="font-secondary fw-bold mb-4 display-4">Have Questions? We're Here to Help.</h1>
+        <p class="fs-5 opacity-90 mb-5">Get in touch with us for quick support or inquiries. We're just a message away.</p>
+        
+        <div class="row g-4 justify-content-center mt-2">
+          <!-- Order Issues -->
+          <div class="col-6 col-md-3">
+            <div class="contact-icon-box d-flex flex-column align-items-center">
+              <div class="icon-circle mb-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-file-earmark-text fs-3"></i>
+              </div>
+              <h5 class="fw-bold mb-3">Order Issues</h5>
+              <button (click)="openContactModal('Order Issue')" class="btn btn-outline-light-custom rounded-pill px-4 py-2 small fw-bold">Order Issues</button>
+            </div>
+          </div>
+          <!-- New Order -->
+          <div class="col-6 col-md-3">
+            <div class="contact-icon-box d-flex flex-column align-items-center">
+              <div class="icon-circle mb-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-file-earmark-plus fs-3"></i>
+              </div>
+              <h5 class="fw-bold mb-3">New Order</h5>
+              <button (click)="openContactModal('New Order')" class="btn btn-outline-light-custom rounded-pill px-4 py-2 small fw-bold">New Order</button>
+            </div>
+          </div>
+          <!-- Feedback -->
+          <div class="col-6 col-md-3">
+            <div class="contact-icon-box d-flex flex-column align-items-center">
+              <div class="icon-circle mb-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-chat-left-dots fs-3"></i>
+              </div>
+              <h5 class="fw-bold mb-3">Feedback</h5>
+              <button (click)="openContactModal('Feedback')" class="btn btn-outline-light-custom rounded-pill px-4 py-2 small fw-bold">Feedback</button>
+            </div>
+          </div>
+          <!-- Other Issues -->
+          <div class="col-6 col-md-3">
+            <div class="contact-icon-box d-flex flex-column align-items-center">
+              <div class="icon-circle mb-3 d-flex align-items-center justify-content-center">
+                <i class="bi bi-file-earmark-person fs-3"></i>
+              </div>
+              <h5 class="fw-bold mb-3">Other Issues</h5>
+              <button (click)="openContactModal('Other Issue')" class="btn btn-outline-light-custom rounded-pill px-4 py-2 small fw-bold">Other Issues</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- SECTION 2: FAQ Accordion -->
+  <section class="faq-section py-5">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="faq-list d-flex flex-column gap-3">
+            <div *ngFor="let faq of faqs" class="faq-item shadow-sm rounded-1 overflow-hidden" [class.active]="faq.isOpen">
+              <div class="faq-header p-4 d-flex align-items-center justify-content-between bg-white cursor-pointer" (click)="toggleFaq(faq)">
+                <h5 class="mb-0 fw-bold fs-6">{{ faq.question }}</h5>
+                <i class="bi" [class.bi-chevron-down]="!faq.isOpen" [class.bi-chevron-up]="faq.isOpen"></i>
+              </div>
+              <div class="faq-body p-4 bg-light border-top" *ngIf="faq.isOpen">
+                <p class="mb-0 opacity-75">You can track your consignment using the "Track Shipment" button in the navigation bar. Simply enter your tracking number to get real-time updates on your package's location.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+
+<!-- CONTACT MODAL -->
+<div class="contact-modal-overlay" *ngIf="showModal" (click)="closeContactModal()">
+  <div class="contact-modal-container shadow-lg" (click)="$event.stopPropagation()">
+    <!-- Modal Header -->
+    <div class="modal-close-btn" (click)="closeContactModal()">
+      <i class="bi bi-x-lg"></i>
+    </div>
+
+    <div class="row g-0 h-100">
+      <!-- Left Side: Info -->
+      <div class="col-lg-5 info-panel p-5 text-white">
+        <h2 class="display-5 fw-bold mb-4">Get in Touch</h2>
+        
+        <div class="mb-4">
+          <select class="form-select issue-select bg-transparent text-white border-light rounded-3 p-3 fs-5" [(ngModel)]="selectedIssueType">
+            <option value="Order Issue" class="text-dark">Order Issue</option>
+            <option value="New Order" class="text-dark">New Order</option>
+            <option value="Feedback" class="text-dark">Feedback</option>
+            <option value="Other Issue" class="text-dark">Other Issue</option>
+          </select>
+        </div>
+
+        <div class="contact-details mt-5">
+          <div class="d-flex align-items-center mb-4">
+            <div class="detail-icon me-3"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <div class="fw-bold fs-5">Call Now</div>
+              <div class="opacity-75">01246939777</div>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="detail-icon me-3"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <div class="fw-bold fs-5">Send Email</div>
+              <div class="opacity-75">customercare@trueload.in</div>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center">
+            <div class="detail-icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <div class="fw-bold fs-5">Location</div>
+              <div class="opacity-75 small">
+                True Load,<br>
+                2nd Floor, 222, PDS Tower, Udyog Vihar,<br>
+                Phase-I, Gurugram-122016, Haryana, India
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Form -->
+      <div class="col-lg-7 form-panel p-5">
+        <div class="d-flex align-items-center mb-4">
+            <i class="bi bi-file-earmark-text text-atc-teal fs-2 me-2"></i>
+            <h3 class="fw-bold mb-0 text-white">{{ selectedIssueType }}</h3>
+        </div>
+
+        <form class="contact-form" [ngSwitch]="selectedIssueType">
+          <!-- NEW ORDER FORM -->
+          <div *ngSwitchCase="'New Order'" class="row g-4">
+            <div class="col-12">
+              <label class="form-label text-white fw-bold">Contact Number</label>
+              <div class="input-group">
+                <select class="form-select bg-dark-teal text-white border-secondary" style="max-width: 100px;">
+                  <option selected>+91</option>
+                </select>
+                <input type="tel" class="form-control bg-dark-teal text-white border-secondary" placeholder="Enter Contact Number">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Type of goods</label>
+              <select class="form-select bg-dark-teal text-white border-secondary p-3">
+                <option selected>Electronics</option>
+                <option>Textiles</option>
+                <option>Machinery</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Preferred Freight type</label>
+              <select class="form-select bg-dark-teal text-white border-secondary p-3">
+                <option selected>Road ways</option>
+                <option>Air freight</option>
+                <option>Sea freight</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label text-white fw-bold">Description</label>
+              <textarea class="form-control bg-dark-teal text-white border-secondary p-3" rows="4" placeholder="Type here..."></textarea>
+            </div>
+          </div>
+
+          <!-- OTHER ISSUES / FEEDBACK / ORDER ISSUE FORM -->
+          <div *ngSwitchDefault class="row g-4">
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Select Order number *</label>
+              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
+                <option selected>Enter Name</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Delivery status (By default)</label>
+              <input type="text" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" readonly>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Select Branch</label>
+              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
+                <option selected>Enter Subject</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-white fw-bold">Select the issue</label>
+              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
+                <option selected>Lorem ipsum dolor sit amet consec</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label text-white fw-bold">Description</label>
+              <textarea class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" rows="4" placeholder="Type here..."></textarea>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold fs-5 shadow">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

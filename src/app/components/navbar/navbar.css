@@ -1,0 +1,133 @@
+.navbar {
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  z-index: 1050; /* Ensure navbar stays above most things but below modal */
+}
+
+.navbar.scrolled {
+  background-color: #0d4140; /* Dark Teal when scrolled */
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin: 0 10px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  opacity: 1;
+}
+
+.btn-atc-teal {
+  background-color: var(--atc-teal);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-atc-teal:hover {
+  background-color: var(--atc-teal-dark);
+  color: white;
+}
+
+/* Tracking Modal */
+.tracking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(4px);
+  z-index: 9999; /* Highest priority */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tracking-modal-card {
+  background: white;
+  width: 95%;
+  max-width: 550px;
+  border-radius: 15px;
+  animation: modalScaleUp 0.2s ease-out;
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.tracking-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.tracking-input-group .form-control {
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+}
+
+.tracking-input-group .form-control:focus {
+  box-shadow: none;
+  border-color: var(--atc-teal);
+}
+
+.rounded-start-4 {
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+}
+
+.rounded-end-4 {
+  border-top-right-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+}
+
+.close-btn {
+  color: #333;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+/* Adjust button placement for mobile */
+@media (max-width: 991.98px) {
+  .navbar {
+    background-color: #0d4140;
+    padding: 10px 0;
+  }
+  .track-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .navbar-collapse {
+    background-color: #0d4140;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .nav-link {
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+}

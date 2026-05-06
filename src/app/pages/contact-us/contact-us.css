@@ -1,0 +1,220 @@
+.contact-page {
+  background-color: #f8f9fa;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* Hero Section */
+.contact-hero {
+  height: 90vh;
+  min-height: 800px;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay-mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-box {
+  background: rgba(13, 65, 64, 0.7); /* Translucent dark teal */
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 1100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-box:hover .icon-circle {
+  background: var(--atc-teal);
+  transform: scale(1.1);
+}
+
+.btn-outline-light-custom {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.btn-outline-light-custom:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: #e5e7e6;
+}
+
+.faq-item {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.faq-item:hover {
+  border-color: var(--atc-teal);
+}
+
+.faq-header {
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-header:hover {
+  background-color: #f1f3f5 !important;
+}
+
+.faq-item.active .faq-header {
+  background-color: white !important;
+  color: var(--atc-teal);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 767.98px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+  .contact-box {
+    padding: 2rem !important;
+  }
+}
+
+/* CONTACT MODAL STYLES */
+.contact-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contact-modal-container {
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  min-height: 650px;
+  background: rgba(13, 65, 64, 0.4); /* Very transparent overall */
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: modalScaleUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes modalScaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 10;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.info-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-panel {
+  background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent panel for form */
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+.bg-dark-teal {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: white !important;
+}
+
+.contact-form .form-control, .contact-form .form-select {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus, .contact-form .form-select:focus {
+  border-color: var(--atc-teal);
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 0 4px rgba(43, 93, 84, 0.2);
+}
+
+.text-atc-teal {
+  color: var(--atc-teal);
+}
+
+.btn-atc-teal {
+  background-color: var(--atc-teal);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-atc-teal:hover {
+  background-color: #1a3d37;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(43, 93, 84, 0.3);
+}
+
+@media (max-width: 991.98px) {
+  .contact-modal-container {
+    height: auto;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+  .info-panel {
+    padding: 3rem 2rem !important;
+  }
+  .form-panel {
+    padding: 3rem 2rem !important;
+  }
+}

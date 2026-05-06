@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --atc-teal: #42b29e;
+  --atc-teal-dark: #359886;
+  --atc-blue: #375971;
+  --atc-dark: #19313f;
+  --atc-gold: #c69c61;
+  --atc-gold-dark: #ad8348;
+  --atc-light: #f4f6f8;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-dark);
+  background-color: var(--atc-light);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Custom Utilities */
+.btn-atc-teal {
+  background-color: var(--atc-teal);
+  color: white;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: var(--transition-normal);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-atc-teal:hover {
+  background-color: var(--atc-teal-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,98 @@
+.footer-section {
+  background-color: #042f2e; /* Dark teal background based on new screenshot */
+  color: white;
+}
+
+.logo-text {
+  font-family: var(--font-secondary);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.text-atc-gold {
+  color: #d4a373; /* Gold color matching screenshot */
+}
+
+/* Social Icons */
+.social-link {
+  color: white;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #042f2e;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
+.social-link.youtube {
+  background-color: white;
+}
+
+.social-link.youtube i {
+  color: red !important;
+  font-size: 1.5rem;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* Links */
+.footer-links li {
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  color: white;
+  transition: var(--transition-normal);
+  font-size: 1.05rem;
+}
+
+.footer-links a:hover {
+  color: var(--atc-gold);
+  padding-left: 5px;
+}
+
+.bottom-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.bottom-links a:hover {
+  color: var(--atc-gold);
+}
+
+/* Form Styles */
+.bg-dark-teal {
+  background-color: #0d4140 !important; /* Slightly lighter teal for inputs */
+}
+
+.form-control::placeholder, .form-select {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: #125553 !important;
+  color: white;
+  box-shadow: none;
+  border: 1px solid var(--atc-teal);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}

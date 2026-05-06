@@ -1,0 +1,127 @@
+.commitment-section {
+  background-color: white;
+}
+
+.top-visuals {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.airplane-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1570710891163-6d246603a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.map-bg-container {
+  background-color: #f1f8f4; /* Light map background color */
+  background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Clean map texture */
+  background-size: cover;
+  background-position: center;
+  min-height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Truck decorations from screenshot */
+.map-bg-container::before, .map-bg-container::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Blue Truck */
+.map-bg-container::before {
+  background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); /* Truck from top */
+  top: 40%;
+  left: 10%;
+  transform: rotate(15deg);
+  opacity: 0.8;
+}
+
+/* Red Truck */
+.map-bg-container::after {
+  background-image: url('https://images.unsplash.com/photo-1586191121278-200df1b4a65b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); /* Another Truck */
+  top: 15%;
+  right: 15%;
+  transform: rotate(-15deg);
+  opacity: 0.8;
+}
+
+.map-overlay {
+  background: rgba(241, 248, 244, 0.4); /* Much lighter overlay to show map and trucks */
+  min-height: 100%;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.text-atc-dark {
+  color: #3b7168; /* Dark teal */
+  font-family: var(--font-secondary);
+}
+
+.text-atc-teal-header {
+  color: #2b5d54; /* Slightly darker teal */
+  font-family: var(--font-secondary);
+}
+
+.commitment-image {
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); /* Transport Truck */
+  background-size: cover;
+  background-position: center;
+}
+
+.commitment-card-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: -60px; /* Overlap image */
+  z-index: 2;
+}
+
+.commitment-card {
+  background-color: #c99855; /* The specific gold color in screenshot */
+  width: 100%;
+}
+
+.card-title {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+@media (max-width: 991.98px) {
+  .commitment-card-wrapper {
+    margin-left: 0;
+    margin-top: -50px; /* Overlap image vertically on mobile */
+  }
+  .commitment-image {
+    height: 350px;
+  }
+  .text-center.display-3 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,65 @@
+.auth-page {
+  background-color: #042f2e; /* ATC Dark Teal */
+  background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.auth-card {
+  background-color: rgba(13, 65, 64, 0.9); /* Slightly lighter teal with opacity */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-text {
+  font-family: var(--font-secondary);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.auth-input {
+  background-color: rgba(4, 47, 46, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.auth-input:focus {
+  background-color: rgba(4, 47, 46, 1) !important;
+  border-color: var(--atc-teal);
+  box-shadow: 0 0 0 0.25rem rgba(59, 113, 104, 0.25);
+}
+
+.custom-checkbox {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.custom-checkbox:checked {
+  background-color: var(--atc-teal);
+  border-color: var(--atc-teal);
+}
+
+.hover-underline:hover {
+  text-decoration: underline !important;
+}
+
+.back-btn {
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-btn:hover {
+  opacity: 1;
+  transform: translateX(-5px);
+}

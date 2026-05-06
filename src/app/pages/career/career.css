@@ -1,0 +1,189 @@
+/* Career Page Styles */
+.career-page {
+  overflow-x: hidden;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+/* SECTION 1: Hero */
+.career-hero {
+  height: 90vh;
+  min-height: 700px;
+  background-color: #f8f9fa;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+}
+
+.giant-join-us {
+  font-size: 15rem; /* Massive text */
+  font-family: var(--font-secondary);
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+  top: 15%;
+  left: -20px;
+  line-height: 1;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.bg-dark-gradient {
+  background: linear-gradient(135deg, rgba(20, 40, 40, 0.95) 0%, rgba(10, 25, 25, 0.98) 100%);
+  border-top-right-radius: 80px;
+  backdrop-filter: blur(5px);
+}
+
+/* SECTION 2: Who Are We */
+.who-are-we {
+  height: 80vh;
+  min-height: 600px;
+  background-color: #f8f9fa;
+}
+
+.who-we-are-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center right;
+}
+
+.bg-dark-gradient-right {
+  background: linear-gradient(90deg, rgba(20, 30, 30, 0.95) 0%, rgba(20, 30, 30, 0.9) 70%, rgba(20, 30, 30, 0) 100%);
+  border-top-right-radius: 120px;
+  border-bottom-right-radius: 120px;
+  margin-right: -100px; /* Overlap right */
+  backdrop-filter: blur(3px);
+}
+
+/* SECTION 3: Your Growth, Our Mission */
+.growth-mission {
+  height: 80vh;
+  min-height: 600px;
+  background-color: #f8f9fa;
+}
+
+.growth-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center left;
+}
+
+.bg-dark-gradient-left {
+  background: linear-gradient(270deg, rgba(20, 30, 30, 0.95) 0%, rgba(20, 30, 30, 0.9) 70%, rgba(20, 30, 30, 0) 100%);
+  border-top-left-radius: 120px;
+  border-bottom-left-radius: 120px;
+  margin-left: -100px; /* Overlap left */
+  backdrop-filter: blur(3px);
+}
+
+/* SECTION 4: Testimonials */
+.testimonials-section {
+  background-color: #e5e7e6; /* Specific light gray from screenshot */
+  min-height: 700px;
+}
+
+.testimonial-card {
+  height: 450px;
+}
+
+.testimonial-img-wrapper {
+  width: 40%;
+  background-size: cover;
+  background-position: center top;
+}
+
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: var(--atc-teal) !important;
+  border-color: var(--atc-teal) !important;
+  color: white !important;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #b0c4b1;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: var(--atc-teal);
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199.98px) {
+  .giant-join-us {
+    font-size: 10rem;
+    left: 10px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .giant-join-us {
+    font-size: 8rem;
+    left: 20px;
+  }
+  .bg-dark-gradient-right {
+    background: rgba(20, 30, 30, 0.9);
+    border-radius: 0;
+    margin-right: 0;
+  }
+  .bg-dark-gradient-left {
+    background: rgba(20, 30, 30, 0.9);
+    border-radius: 0;
+    margin-left: 0;
+  }
+  .testimonial-card {
+    height: auto;
+    flex-direction: column;
+  }
+  .testimonial-img-wrapper {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .giant-join-us {
+    font-size: 5rem;
+    top: 10%;
+  }
+  .bg-dark-gradient {
+    border-top-right-radius: 40px;
+  }
+}
