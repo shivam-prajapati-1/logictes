@@ -1,0 +1,60 @@
+<div class="modal-overlay" *ngIf="isVisible$ | async" (click)="close()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-bg-image">
+      <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80" alt="Logistics Background">
+      <div class="image-overlay"></div>
+    </div>
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Request a Quote / Book</h2>
+        <button class="close-btn" (click)="close()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      
+      <form (ngSubmit)="onSubmit()" #quoteForm="ngForm" class="quote-form">
+        <div class="row g-3">
+          <!-- PERSONAL/COMPANY INFO -->
+          <div class="col-md-6">
+            <input type="text" name="name" [(ngModel)]="formData.name" placeholder="Name" required class="form-control glass-input">
+          </div>
+          <div class="col-md-6">
+            <input type="email" name="email" [(ngModel)]="formData.email" placeholder="Your email" required class="form-control glass-input">
+          </div>
+          <div class="col-md-6">
+            <input type="tel" name="phone" [(ngModel)]="formData.phone" placeholder="Phone" required class="form-control glass-input">
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="company" [(ngModel)]="formData.company" placeholder="Company name" class="form-control glass-input">
+          </div>
+
+          <!-- SHIPMENT DETAILS -->
+          <div class="col-md-6">
+            <input type="text" name="pickupLocation" [(ngModel)]="formData.pickupLocation" placeholder="Pickup Location" required class="form-control glass-input">
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="deliveryLocation" [(ngModel)]="formData.deliveryLocation" placeholder="Delivery Location" required class="form-control glass-input">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="goodsType" [(ngModel)]="formData.goodsType" placeholder="Type of Goods" required class="form-control glass-input">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="weightVolume" [(ngModel)]="formData.weightVolume" placeholder="Weight/Volume" required class="form-control glass-input">
+          </div>
+          <div class="col-md-4">
+            <input type="text" name="timeline" [(ngModel)]="formData.timeline" placeholder="Delivery Timeline" required class="form-control glass-input">
+          </div>
+
+          <div class="col-12">
+            <textarea name="description" [(ngModel)]="formData.description" placeholder="Any additional requirements or details" rows="3" class="form-control glass-input"></textarea>
+          </div>
+          
+          <div class="col-12 text-center mt-4">
+            <button type="submit" class="submit-btn" [disabled]="!quoteForm.form.valid">Submit Request</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

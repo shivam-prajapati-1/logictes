@@ -1,13 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-  --atc-teal: #42b29e;
-  --atc-teal-dark: #359886;
-  --atc-blue: #375971;
-  --atc-dark: #19313f;
-  --atc-gold: #c69c61;
-  --atc-gold-dark: #ad8348;
-  --atc-light: #f4f6f8;
+  --atc-purple: #6b1d5c;
+  --atc-purple-dark: #501545;
+  --atc-purple-light: #a3328e;
+  --atc-white: #ffffff;
+  --atc-light-bg: #f8f8f8;
+  --atc-dark: #1a1a1a;
   --text-dark: #333333;
   --text-light: #ffffff;
   
@@ -17,6 +16,10 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+
+  /* Legacy variable mapping for compatibility */
+  --atc-teal: var(--atc-purple);
+  --atc-teal-dark: var(--atc-purple-dark);
 }
 
 * {
@@ -28,7 +31,7 @@
 body {
   font-family: var(--font-primary);
   color: var(--text-dark);
-  background-color: var(--atc-light);
+  background-color: var(--atc-white);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -51,7 +54,7 @@ ul {
 
 /* Custom Utilities */
 .btn-atc-teal {
-  background-color: var(--atc-teal);
+  background-color: var(--atc-purple);
   color: white;
   border-radius: 30px;
   padding: 10px 25px;
@@ -64,9 +67,17 @@ ul {
 }
 
 .btn-atc-teal:hover {
-  background-color: var(--atc-teal-dark);
+  background-color: var(--atc-purple-dark);
   color: white;
   transform: translateY(-2px);
+}
+
+.bg-purple {
+  background-color: var(--atc-purple) !important;
+}
+
+.text-purple {
+  color: var(--atc-purple) !important;
 }
 
 .section-padding {
@@ -74,7 +85,7 @@ ul {
 }
 
 .section-title {
-  color: white;
+  color: inherit;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 2.5rem;

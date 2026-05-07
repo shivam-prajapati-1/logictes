@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-order-cta',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   template: `
     <section class="order-cta-section py-5">
       <!-- Road Visual -->
@@ -24,14 +27,25 @@ import { CommonModule } from '@angular/common';
 
       <!-- CTA Buttons -->
       <div class="container text-center pt-5">
-        <div class="row g-4 justify-content-center">
-          <div class="col-md-5">
+        <div class="row g-4 justify-content-center align-items-stretch">
+          <div class="col-md-5 d-flex flex-column justify-content-between">
             <h2 class="display-5 fw-bold font-secondary mb-4">Place Your Order Today!</h2>
-            <button class="btn btn-atc-teal-lg rounded-pill px-5 py-3 fw-bold fs-4 shadow">Enter Details</button>
+            <div>
+              <button (click)="openQuoteModal()" class="btn btn-atc-purple-lg rounded-pill px-5 py-3 fw-bold fs-4 shadow">Enter Details</button>
+            </div>
           </div>
-          <div class="col-md-5">
-            <h2 class="display-5 fw-bold font-secondary mb-4">Shipment</h2>
-            <button class="btn btn-atc-teal-lg rounded-pill px-5 py-3 fw-bold fs-4 shadow">Enter Tracking ID</button>
+          <div class="col-md-5 d-flex flex-column justify-content-between">
+            <h2 class="display-5 fw-bold font-secondary mb-4">Track Your Shipment</h2>
+            <div class="input-group tracking-input-group mx-auto" style="max-width: 400px;">
+              <input type="text" 
+                     class="form-control rounded-start-pill ps-4 py-3 border-0 shadow-sm" 
+                     placeholder="Enter Tracking ID" 
+                     [(ngModel)]="trackingId"
+                     (keyup.enter)="onTrack()">
+              <button class="btn btn-atc-purple rounded-end-pill px-4" (click)="onTrack()">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +96,7 @@ import { CommonModule } from '@angular/common';
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 4px solid var(--atc-teal);
+      border: 4px solid var(--atc-purple);
       overflow: hidden;
       background: white;
       transition: transform 0.3s ease;
@@ -95,23 +109,35 @@ import { CommonModule } from '@angular/common';
       height: 0;
       border-left: 12px solid transparent;
       border-right: 12px solid transparent;
-      border-top: 15px solid var(--atc-teal);
+      border-top: 15px solid var(--atc-purple);
       margin-top: -5px;
     }
     .font-secondary {
-      font-family: var(--font-secondary);
+      font-family: inherit;
       letter-spacing: -1px;
     }
-    .btn-atc-teal-lg {
-      background-color: var(--atc-teal);
+    .btn-atc-purple-lg {
+      background-color: var(--atc-purple);
       color: white;
       border: none;
       transition: all 0.3s ease;
     }
-    .btn-atc-teal-lg:hover {
-      background-color: #1a3d37;
+    .btn-atc-purple-lg:hover {
+      background-color: var(--atc-purple-dark);
       transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(43, 93, 84, 0.2) !important;
+      box-shadow: 0 10px 20px rgba(107, 29, 92, 0.2) !important;
+    }
+    .btn-atc-purple {
+      background-color: var(--atc-purple);
+      color: white;
+      border: none;
+    }
+    .tracking-input-group input {
+      border: 1px solid #eee !important;
+    }
+    .tracking-input-group .form-control:focus {
+      box-shadow: none;
+      border-color: var(--atc-purple) !important;
     }
     @media (max-width: 991.98px) {
       .pin-circle {
@@ -134,6 +160,8 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class OrderCtaComponent {
+  trackingId: string = '';
+
   pinImages = [
     'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=300&q=80',
     'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=300&q=80',
@@ -142,4 +170,18 @@ export class OrderCtaComponent {
     'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=300&q=80',
     'https://plus.unsplash.com/premium_photo-1661963219843-f1a50a6cfcd3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   ];
+
+  constructor(private router: Router, private modalService: ModalService) {}
+
+  onTrack() {
+    if (this.trackingId.trim()) {
+      this.router.navigate(['/tracking-result'], { 
+        queryParams: { lrNo: this.trackingId.trim() } 
+      });
+    }
+  }
+
+  openQuoteModal() {
+    this.modalService.openQuoteModal();
+  }
 }

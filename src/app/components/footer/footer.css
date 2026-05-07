@@ -1,5 +1,5 @@
 .footer-section {
-  background-color: #042f2e; /* Dark teal background based on new screenshot */
+  background-color: var(--atc-purple);
   color: white;
 }
 
@@ -10,20 +10,15 @@
   letter-spacing: -2px;
 }
 
-.text-atc-gold {
-  color: #d4a373; /* Gold color matching screenshot */
-}
-
 /* Social Icons */
 .social-link {
-  color: white;
+  color: var(--atc-purple);
   font-size: 1.8rem;
   transition: transform 0.3s ease, color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  color: #042f2e;
   width: 40px;
   height: 40px;
   border-radius: 5px;
@@ -31,10 +26,6 @@
 
 .social-link i {
   font-size: 1.2rem;
-}
-
-.social-link.youtube {
-  background-color: white;
 }
 
 .social-link.youtube i {
@@ -49,50 +40,76 @@
 
 /* Links */
 .footer-links li {
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .footer-links a {
   color: white;
   transition: var(--transition-normal);
   font-size: 1.05rem;
+  opacity: 0.8;
 }
 
 .footer-links a:hover {
-  color: var(--atc-gold);
+  opacity: 1;
   padding-left: 5px;
 }
 
 .bottom-links a {
   color: white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
 }
 
 .bottom-links a:hover {
-  color: var(--atc-gold);
+  opacity: 1;
 }
 
 /* Form Styles */
-.bg-dark-teal {
-  background-color: #0d4140 !important; /* Slightly lighter teal for inputs */
+.bg-white-transparent {
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.form-control::placeholder, .form-select {
-  color: rgba(255, 255, 255, 0.5) !important;
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
-.form-control:focus, .form-select:focus {
-  background-color: #125553 !important;
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.15) !important;
   color: white;
   box-shadow: none;
-  border: 1px solid var(--atc-teal);
 }
 
-.hover-lift {
-  transition: transform 0.3s ease;
+.btn-atc-white {
+  background-color: white;
+  color: var(--atc-purple);
+  border: none;
+  transition: all 0.3s ease;
 }
 
-.hover-lift:hover {
+.btn-atc-white:hover {
+  background-color: #f0f0f0;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-details .bi {
+  color: #ffc107; /* Gold icon for visibility */
+}
+
+@media (max-width: 767.98px) {
+  .logo-text {
+    font-size: 2.5rem;
+  }
+  .footer-section {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  .contact-details {
+    text-align: center;
+    width: 100%;
+  }
 }

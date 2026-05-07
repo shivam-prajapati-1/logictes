@@ -1,5 +1,5 @@
 .services-page {
-  background-color: #111;
+  background-color: #0a0a0a;
   min-height: 100vh;
 }
 
@@ -18,164 +18,202 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.4) 50%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.4) 50%, rgba(0,0,0,0.2) 100%);
 }
 
 .font-secondary {
   font-family: var(--font-secondary);
 }
 
-.hover-lift {
-  transition: transform 0.3s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-3px);
+.atc-line {
+  width: 80px;
+  height: 4px;
+  background: var(--atc-teal);
+  border-radius: 2px;
+  margin-top: 15px;
 }
 
 /* Service Details Section */
 .service-details {
-  background-color: #151515; /* Dark background matching screenshot */
+  background-color: #0a0a0a;
 }
 
 .detail-card {
-  background-color: #222; /* Card background */
-  border-radius: 12px;
+  background-color: #151515;
+  border-radius: 16px;
   overflow: hidden;
   height: 100%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .detail-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  border-color: rgba(59, 113, 104, 0.6);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  background: rgba(59, 113, 104, 0.05);
 }
 
-.card-img-left {
-  width: 35%; /* Fixed width for the image part */
+.card-img-top {
+  height: 220px;
   background-size: cover;
   background-position: center;
-  min-height: 250px;
+  transition: transform 0.6s ease;
+  position: relative;
+}
+
+.card-img-top::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(21, 21, 21, 1), transparent);
+}
+
+.detail-card:hover .card-img-top {
+  transform: scale(1.08);
 }
 
 .card-content {
-  width: 65%; /* Width for content */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-@media (max-width: 767.98px) {
-  .detail-card {
-    flex-direction: column;
-  }
-  .card-img-left {
-    width: 100%;
-    height: 200px;
-  }
-  .card-content {
-    width: 100%;
-  }
-}
-
-/* Detailed Service Sections */
-.detailed-service {
-  height: 80vh;
-  min-height: 600px;
-}
-
-.service-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.service-detail-card {
-  backdrop-filter: blur(5px);
-  position: relative;
-}
-
-.overlay-left {
-  background: linear-gradient(90deg, rgba(20, 40, 40, 0.95) 0%, rgba(20, 40, 40, 0.8) 70%, rgba(20, 40, 40, 0) 100%);
-  border-top-right-radius: 120px;
-  border-bottom-right-radius: 120px;
-}
-
-.overlay-right {
-  background: linear-gradient(270deg, rgba(20, 40, 40, 0.95) 0%, rgba(20, 40, 40, 0.8) 70%, rgba(20, 40, 40, 0) 100%);
-  border-top-left-radius: 120px;
-  border-bottom-left-radius: 120px;
-}
-
-.coming-soon-overlay {
-  background: rgba(0,0,0,0.2);
-}
-
-.coming-soon-text {
-  font-size: 8rem;
-  letter-spacing: -2px;
-  transform: rotate(-5deg);
-}
-
-/* Warehouse Service Section */
-.warehouse-service-section {
-  min-height: 800px;
-  background-color: #111;
-}
-
-.service-bg-warehouse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.4;
-}
-
-.warehouse-box {
-  background-color: #3b7168; /* ATC Teal */
-  max-width: 900px;
-  width: 90%;
+  padding: 30px !important;
   position: relative;
   z-index: 2;
+  flex-grow: 1;
 }
 
-.box-outline {
+/* Clients Section */
+.clients-section {
+  background-color: #0d0d0d;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.client-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.client-box:hover {
+  background: rgba(59, 113, 104, 0.1);
+  border-color: var(--atc-teal);
+  transform: scale(1.02);
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #0a0a0a;
+}
+
+.cta-card {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: -15px;
-  bottom: -15px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
-.btn-outline-white {
-  border: 2px solid white;
+.cta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
+
+.text-atc-teal-light {
+  color: #64b5f6;
+}
+
+.btn-atc-teal {
+  background-color: #3b7168;
   color: white;
-  background: transparent;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-atc-teal:hover {
+  background-color: #2d564f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 113, 104, 0.4);
+}
+
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
   transition: all 0.3s ease;
 }
 
 .btn-outline-white:hover {
-  background: white;
-  color: var(--atc-teal);
+  border-color: white;
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
 }
 
-@media (max-width: 991.98px) {
-  .overlay-left, .overlay-right {
-    background: rgba(20, 40, 40, 0.9);
-    border-radius: 0;
+@media (max-width: 991px) {
+  .display-3 {
+    font-size: 3rem;
   }
-  .coming-soon-text {
-    font-size: 4rem;
+  .display-5 {
+    font-size: 2.2rem;
+  }
+  .cta-card {
+    padding: 2.5rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .service-hero {
+    height: 50vh;
+    min-height: 400px;
+  }
+  .display-3 {
+    font-size: 2.2rem;
+  }
+  .display-5 {
+    font-size: 1.8rem;
+  }
+  .cta-card {
+    padding: 2rem !important;
+    text-align: center;
+  }
+  .cta-card ul {
+    text-align: left;
+    display: inline-block;
+  }
+  .btn-atc-teal, .btn-outline-white {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .service-hero {
+    padding-bottom: 30px !important;
+  }
+  .display-3 {
+    font-size: 1.8rem;
+  }
+  .atc-line {
+    width: 60px;
+    height: 3px;
   }
 }
 

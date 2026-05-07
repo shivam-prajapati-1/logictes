@@ -19,9 +19,12 @@
           <h1 class="hero-title text-white" [innerHTML]="slide.title"></h1>
           <p class="hero-subtitle mt-4 mb-4 text-white" [innerHTML]="slide.subtitle"></p>
           <div class="d-flex gap-3 mt-5">
-            <a [routerLink]="slide.buttonLink" class="btn btn-atc-teal btn-lg rounded-pill px-5 hero-btn">
+            <a *ngIf="slide.buttonLink !== 'modal'" [routerLink]="slide.buttonLink" class="btn btn-atc-teal btn-lg rounded-pill px-5 hero-btn">
               {{ slide.buttonText }}
             </a>
+            <button *ngIf="slide.buttonLink === 'modal'" (click)="openQuoteModal()" class="btn btn-atc-teal btn-lg rounded-pill px-5 hero-btn">
+              {{ slide.buttonText }}
+            </button>
           </div>
         </div>
       </div>

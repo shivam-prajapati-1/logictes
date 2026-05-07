@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ export class NavbarComponent {
   isMenuCollapsed = true;
   trackingNumber = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private modalService: ModalService) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

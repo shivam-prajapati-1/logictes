@@ -1,99 +1,81 @@
-<!-- Custom Header Bar -->
-<div class="tracking-header-bar py-3 px-4 px-lg-5 mb-5">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
-    <div class="logo-area">
-      <h2 class="logo-text text-white mb-0">True Load</h2>
-    </div>
-    <div class="header-right">
-      <span class="text-white fw-bold cursor-pointer hover-opacity" (click)="toggleTrackingModal()">Track Shipment</span>
-    </div>
-  </div>
-</div>
-
-<!-- Black Tracking Modal -->
-<div class="black-modal-overlay" *ngIf="showTrackingModal" (click)="toggleTrackingModal()">
-  <div class="black-modal-content p-4 p-md-5" (click)="$event.stopPropagation()">
-    <button class="modal-close-btn" (click)="toggleTrackingModal()">&times;</button>
-    
-    <div class="text-center mb-4">
-      <h2 class="modal-title-serif text-dark">Track Consignment</h2>
-    </div>
-
-    <div class="input-group custom-tracking-input rounded-pill overflow-hidden bg-white">
-      <input type="text" class="form-control border-0 px-4 py-3" 
-             placeholder="Enter Your Consignment number" 
-             [(ngModel)]="newTrackingNumber"
-             (keyup.enter)="onTrack()">
-      <button class="btn btn-atc-teal px-5 fw-bold" type="button" (click)="onTrack()">Go</button>
+<div class="tracking-page">
+  <!-- Top Header -->
+  <div class="tracking-header mb-4">
+    <!-- Header right now triggers modal -->
+    <div class="container-fluid px-5 d-flex align-items-center justify-content-between h-100">
+      <div class="logo text-white fw-bold fs-3">True Load</div>
+      <div class="header-right text-white small fw-bold cursor-pointer" (click)="toggleTrackingModal()">Track Shipment</div>
     </div>
   </div>
-</div>
 
-<div class="tracking-page-content py-3">
-  <div class="container">
-    
-    <!-- Top Labels -->
-    <div class="d-flex justify-content-between align-items-center mb-5 tracking-header-labels">
-      <div class="lr-label fw-bold">
-        LR No - {{ lrNo }}
+  <div class="container py-4">
+    <!-- LR Info Row -->
+    <div class="row mb-5 px-3">
+      <div class="col-6">
+        <div class="lr-info fw-bold text-dark">LR No - {{ lrNo }}</div>
       </div>
-      <div class="status-label fw-bold">
-        Current Status - <span class="text-atc-teal">{{ currentStatus }}</span>
+      <div class="col-6 text-end">
+        <div class="status-info text-atc-teal fw-bold">Current Status - {{ currentStatus }}</div>
       </div>
     </div>
 
-    <!-- Tracking Progress Timeline -->
-    <div class="tracking-timeline-container mb-5">
-      <div class="timeline-row d-flex justify-content-between align-items-start position-relative">
-        <!-- Connecting Line -->
-        <div class="timeline-line"></div>
-        <div class="timeline-line-active" style="width: 80%;"></div>
-
-        <div *ngFor="let step of trackingTimeline; let last = last; let i = index" class="timeline-step text-center">
-          <div class="step-icon-box mb-3" [class.active]="step.completed" [class.current]="last && currentStatus === 'DELIVERED'">
-            <span *ngIf="step.isText" class="lr-icon-text">{{ step.icon }}</span>
-            <i *ngIf="!step.isText" class="bi" [ngClass]="step.icon"></i>
-          </div>
-          <div class="step-info">
-            <div class="step-status-text mb-2">{{ step.status }}</div>
-            <div class="step-date fw-bold">{{ step.date }}</div>
+    <!-- Horizontal Timeline -->
+    <div class="timeline-container mb-5">
+      <div class="timeline-wrapper">
+        <div class="timeline-line-bg"></div>
+        <div class="timeline-items">
+          <div *ngFor="let item of trackingTimeline" class="timeline-item" [class.completed]="item.completed" [class.last-completed]="item.status === 'Consignment Delivered' && item.completed">
+            <div class="icon-box shadow-sm">
+              <span *ngIf="item.icon === 'LR'">LR</span>
+              <i *ngIf="item.icon !== 'LR'" class="bi {{ item.icon }}"></i>
+            </div>
+            <div class="status-label mt-3">{{ item.status }}</div>
+            <div class="date-label">{{ item.date }}</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Shipment Details Section -->
-    <div class="info-section mb-4">
-      <div class="section-header-teal py-2 text-center text-white fw-bold">
-        Shipment Details
-      </div>
-      <div class="section-body p-3">
-        <div class="row info-row py-1" *ngFor="let detail of shipmentDetails">
-          <div class="col-4 fw-bold">{{ detail.label }}</div>
-          <div class="col-1 text-center">:</div>
-          <div class="col-7 text-end fw-bold">{{ detail.value }}</div>
+    <div class="details-section mb-4">
+      <div class="section-header text-center py-2 mb-3">Shipment Details</div>
+      <div class="details-table border-0">
+        <div class="row g-0 py-1 align-items-center" *ngFor="let detail of shipmentDetails">
+          <div class="col-5 fw-bold ps-3 text-dark">{{ detail.label }}</div>
+          <div class="col-1 text-center text-dark">:</div>
+          <div class="col-6 text-end pe-3 fw-bold text-dark opacity-75">{{ detail.value }}</div>
         </div>
       </div>
     </div>
 
     <!-- Customer Support Section -->
-    <div class="info-section mb-5">
-      <div class="section-header-teal py-2 text-center text-white fw-bold">
-        Customer Support
-      </div>
-      <div class="section-body p-3">
-        <div class="row info-row py-1">
-          <div class="col-4 fw-bold">Customer care number</div>
-          <div class="col-1 text-center">:</div>
-          <div class="col-7 text-end fw-bold">+91 01246939777</div>
+    <div class="support-section">
+      <div class="section-header text-center py-2 mb-3">Customer Support</div>
+      <div class="details-table border-0">
+        <div class="row g-0 py-2 align-items-center">
+          <div class="col-5 fw-bold ps-3 text-dark">Customer care number</div>
+          <div class="col-1 text-center text-dark">:</div>
+          <div class="col-6 text-end pe-3 fw-bold text-dark opacity-75">+91 01246939777</div>
         </div>
-        <div class="row info-row py-1">
-          <div class="col-4 fw-bold">Customer care email</div>
-          <div class="col-1 text-center">:</div>
-          <div class="col-7 text-end fw-bold">customercare@trueload.com</div>
+        <div class="row g-0 py-2 align-items-center">
+          <div class="col-5 fw-bold ps-3 text-dark">Customer care email</div>
+          <div class="col-1 text-center text-dark">:</div>
+          <div class="col-6 text-end pe-3 fw-bold text-dark opacity-75">customercare@trueload.com</div>
         </div>
       </div>
     </div>
 
+    <!-- Actions removed as requested -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="tracking-modal-overlay" *ngIf="showTrackingModal" (click)="toggleTrackingModal()">
+  <div class="tracking-modal bg-white p-5 rounded-4 shadow-lg" (click)="$event.stopPropagation()">
+    <h3 class="fw-bold mb-4">Track Another Shipment</h3>
+    <div class="input-group mb-4">
+        <input type="text" class="form-control p-3 border-atc-teal shadow-none" placeholder="Enter LR Number" [(ngModel)]="newTrackingNumber" (keyup.enter)="onTrack()">
+        <button class="btn btn-atc-teal px-4" (click)="onTrack()">Go</button>
+    </div>
   </div>
 </div>

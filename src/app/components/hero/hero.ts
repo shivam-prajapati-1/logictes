@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../services/modal.service';
 
 interface Slide {
   image: string;
@@ -32,14 +33,16 @@ export class Hero implements OnInit, OnDestroy {
       image: 'images/truck-2.png',
       title: "From Pickup to Delivery,<br>We've Got You Covered",
       subtitle: "Partner with True Load and rest assured with your cargo.<br>We will take care of it on an end-to-end basis.",
-      buttonText: "Start Booking",
-      buttonLink: "/contact",
+      buttonText: "Request a Quote",
+      buttonLink: "modal", // Special flag to open modal
       masteryText: "Expertise"
     }
   ];
   
   currentSlide = 0;
   private slideInterval: any;
+
+  constructor(private modalService: ModalService) {}
 
   ngOnInit() {
     this.startAutoSlide();
@@ -69,5 +72,9 @@ export class Hero implements OnInit, OnDestroy {
     this.currentSlide = index;
     clearInterval(this.slideInterval);
     this.startAutoSlide();
+  }
+
+  openQuoteModal() {
+    this.modalService.openQuoteModal();
   }
 }

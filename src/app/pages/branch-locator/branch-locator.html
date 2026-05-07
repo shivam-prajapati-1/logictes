@@ -12,33 +12,25 @@
         <div class="col-lg-6 text-white pt-5">
           <h1 class="display-3 fw-bold mb-4 font-secondary">Our National Reach</h1>
           <p class="fs-5 mb-5 opacity-90 pe-lg-5">
-            Your nearest True Load branch with ease! <br>
-            You can find below the closest location for all your freight and logistics needs. 
+            Search for your nearest True Load branch by State, City, or Name. 
             We're committed to providing tailored services and support, wherever you are.
           </p>
 
-          <!-- Search & Location Buttons -->
+          <!-- Search Box -->
           <div class="d-flex flex-wrap align-items-center gap-4">
-            <!-- State Search -->
-            <div class="search-box position-relative">
+            <div class="search-box position-relative w-100" style="max-width: 500px;">
               <i class="bi bi-search position-absolute start-0 top-50 translate-middle-y ms-4 text-secondary"></i>
-              <input type="text" class="form-control rounded-pill border-0 shadow-lg ps-5 py-3 fs-5" placeholder="State Name">
-            </div>
-
-            <!-- Current Location -->
-            <div class="d-flex align-items-center gap-3 current-location-trigger">
-              <button class="location-btn rounded-circle d-flex align-items-center justify-content-center shadow-lg">
-                <i class="bi bi-geo-alt-fill fs-4"></i>
-              </button>
-              <span class="fw-bold fs-5">Use My Current Location</span>
+              <input type="text" 
+                     class="form-control rounded-pill border-0 shadow-lg ps-5 py-3 fs-5" 
+                     placeholder="Enter State, City or Branch..."
+                     [(ngModel)]="searchTerm"
+                     (input)="filterBranches()">
             </div>
           </div>
         </div>
 
         <div class="col-lg-6 position-relative d-none d-lg-block">
-          <!-- Floating UI Elements or more map nodes could go here -->
           <div class="map-nodes">
-            <!-- Simulated nodes like in screenshot -->
             <div class="node node-1 shadow"></div>
             <div class="node node-2 shadow"></div>
             <div class="node node-3 shadow"></div>
@@ -47,6 +39,39 @@
       </div>
     </div>
   </div>
+
+  <!-- Branches List -->
+  <section class="branches-section py-5 bg-light">
+    <div class="container">
+      <div class="row g-4" *ngIf="!isLoading">
+        <div class="col-md-6 col-lg-4" *ngFor="let branch of filteredBranches">
+          <div class="branch-card bg-white p-4 rounded-4 shadow-sm h-100 border-0">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <h5 class="fw-bold text-dark mb-0">{{ branch.branchName || branch.name }}</h5>
+              <span class="badge bg-teal-soft text-teal rounded-pill px-3">{{ branch.state }}</span>
+            </div>
+            <p class="text-muted small mb-3">
+              <i class="bi bi-geo-alt-fill me-2 text-teal"></i>
+              {{ branch.address }}
+            </p>
+            <div class="d-flex align-items-center gap-3 mt-auto">
+              <a [href]="'tel:' + branch.phone" class="btn btn-outline-teal btn-sm rounded-pill px-3" *ngIf="branch.phone">
+                <i class="bi bi-telephone-fill me-1"></i> Call
+              </a>
+              <span class="text-muted small" *ngIf="branch.city">{{ branch.city }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center py-5" *ngIf="filteredBranches.length === 0">
+          <div class="display-6 text-muted mb-2">No branches found</div>
+          <p>Try searching for a different location.</p>
+        </div>
+      </div>
+      <div class="text-center py-5" *ngIf="isLoading">
+        <div class="spinner-border text-teal"></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <app-footer></app-footer>

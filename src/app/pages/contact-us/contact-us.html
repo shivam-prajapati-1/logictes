@@ -51,12 +51,8 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
-
-
   </section>
 
   <!-- SECTION 2: FAQ Accordion -->
@@ -97,7 +93,7 @@
         <h2 class="display-5 fw-bold mb-4">Get in Touch</h2>
         
         <div class="mb-4">
-          <select class="form-select issue-select bg-transparent text-white border-light rounded-3 p-3 fs-5" [(ngModel)]="selectedIssueType">
+          <select class="form-select issue-select bg-transparent text-white border-light rounded-3 p-3 fs-5" [(ngModel)]="selectedIssueType" (change)="formData.issueType = selectedIssueType">
             <option value="Order Issue" class="text-dark">Order Issue</option>
             <option value="New Order" class="text-dark">New Order</option>
             <option value="Feedback" class="text-dark">Feedback</option>
@@ -143,67 +139,63 @@
             <h3 class="fw-bold mb-0 text-white">{{ selectedIssueType }}</h3>
         </div>
 
-        <form class="contact-form" [ngSwitch]="selectedIssueType">
-          <!-- NEW ORDER FORM -->
-          <div *ngSwitchCase="'New Order'" class="row g-4">
-            <div class="col-12">
-              <label class="form-label text-white fw-bold">Contact Number</label>
-              <div class="input-group">
-                <select class="form-select bg-dark-teal text-white border-secondary" style="max-width: 100px;">
-                  <option selected>+91</option>
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div [ngSwitch]="selectedIssueType">
+            <!-- NEW ORDER FORM -->
+            <div *ngSwitchCase="'New Order'" class="row g-4">
+              <div class="col-12">
+                <label class="form-label text-white fw-bold">Contact Number</label>
+                <div class="input-group">
+                  <select class="form-select bg-dark-teal text-white border-secondary" style="max-width: 100px;">
+                    <option selected>+91</option>
+                  </select>
+                  <input type="tel" name="phone" [(ngModel)]="formData.phone" class="form-control bg-dark-teal text-white border-secondary" placeholder="Enter Contact Number" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Type of goods</label>
+                <select name="goodsType" [(ngModel)]="formData.goodsType" class="form-select bg-dark-teal text-white border-secondary p-3">
+                  <option value="Electronics">Electronics</option>
+                  <option value="Textiles">Textiles</option>
+                  <option value="Machinery">Machinery</option>
                 </select>
-                <input type="tel" class="form-control bg-dark-teal text-white border-secondary" placeholder="Enter Contact Number">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Preferred Freight type</label>
+                <select name="freightType" [(ngModel)]="formData.freightType" class="form-select bg-dark-teal text-white border-secondary p-3">
+                  <option value="Road ways">Road ways</option>
+                  <option value="Air freight">Air freight</option>
+                  <option value="Sea freight">Sea freight</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label text-white fw-bold">Description</label>
+                <textarea name="description" [(ngModel)]="formData.description" class="form-control bg-dark-teal text-white border-secondary p-3" rows="4" placeholder="Type here..."></textarea>
               </div>
             </div>
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Type of goods</label>
-              <select class="form-select bg-dark-teal text-white border-secondary p-3">
-                <option selected>Electronics</option>
-                <option>Textiles</option>
-                <option>Machinery</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Preferred Freight type</label>
-              <select class="form-select bg-dark-teal text-white border-secondary p-3">
-                <option selected>Road ways</option>
-                <option>Air freight</option>
-                <option>Sea freight</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <label class="form-label text-white fw-bold">Description</label>
-              <textarea class="form-control bg-dark-teal text-white border-secondary p-3" rows="4" placeholder="Type here..."></textarea>
-            </div>
-          </div>
 
-          <!-- OTHER ISSUES / FEEDBACK / ORDER ISSUE FORM -->
-          <div *ngSwitchDefault class="row g-4">
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Select Order number *</label>
-              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
-                <option selected>Enter Name</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Delivery status (By default)</label>
-              <input type="text" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" readonly>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Select Branch</label>
-              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
-                <option selected>Enter Subject</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white fw-bold">Select the issue</label>
-              <select class="form-select bg-dark-teal text-white border-secondary p-3 rounded-3">
-                <option selected>Lorem ipsum dolor sit amet consec</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <label class="form-label text-white fw-bold">Description</label>
-              <textarea class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" rows="4" placeholder="Type here..."></textarea>
+            <!-- OTHER ISSUES / FEEDBACK / ORDER ISSUE FORM -->
+            <div *ngSwitchDefault class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Order number (Optional)</label>
+                <input type="text" name="orderNumber" [(ngModel)]="formData.orderNumber" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" placeholder="Enter Order Number">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Your Name *</label>
+                <input type="text" name="name" [(ngModel)]="formData.name" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" placeholder="Enter Name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Contact Number *</label>
+                <input type="tel" name="phone" [(ngModel)]="formData.phone" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" placeholder="Enter Phone" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-white fw-bold">Email Address *</label>
+                <input type="email" name="email" [(ngModel)]="formData.email" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" placeholder="Enter Email" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label text-white fw-bold">Description</label>
+                <textarea name="description" [(ngModel)]="formData.description" class="form-control bg-dark-teal text-white border-secondary p-3 rounded-3" rows="4" placeholder="Type here..."></textarea>
+              </div>
             </div>
           </div>
 

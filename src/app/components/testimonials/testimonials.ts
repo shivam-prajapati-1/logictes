@@ -16,11 +16,11 @@ import { CommonModule } from '@angular/common';
             <h2 class="font-condensed fw-bold mb-5 display-5 text-dark">What do our customers say?</h2>
             <div class="quote-text-container mb-4">
               <p class="fw-bold fs-5 text-dark lh-sm mb-4">
-                "I am writing to express my sincere appreciation for the service I received from your team. I briefly mentioned the service you received and was impressed by the outstanding support and expertise provided by the True Load team. ...
+                "I am writing to express my sincere appreciation for the service I received from your team. I briefly mentioned the service you received and was impressed by the outstanding support and expertise provided by the Trueload team. ...
               </p>
             </div>
             <div class="d-flex justify-content-end">
-              <button class="btn btn-atc-teal rounded-pill px-4 py-2 fw-bold shadow-sm">Learn More</button>
+              <button class="btn btn-atc-purple rounded-pill px-4 py-2 fw-bold shadow-sm">Learn More</button>
             </div>
           </div>
         </div>
@@ -39,21 +39,21 @@ import { CommonModule } from '@angular/common';
       border: none;
     }
     .font-condensed {
-      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      font-family: var(--font-secondary);
       text-transform: none;
       letter-spacing: -1px;
     }
     .lh-sm {
       line-height: 1.4 !important;
     }
-    .btn-atc-teal {
-      background-color: var(--atc-teal);
+    .btn-atc-purple {
+      background-color: var(--atc-purple);
       color: white;
       transition: all 0.3s ease;
       border: none;
     }
-    .btn-atc-teal:hover {
-      background-color: #1a3d37;
+    .btn-atc-purple:hover {
+      background-color: var(--atc-purple-dark);
       transform: translateY(-2px);
     }
     @media (max-width: 767.98px) {

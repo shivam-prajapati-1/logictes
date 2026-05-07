@@ -12,7 +12,7 @@
           <div class="hero-card bg-dark-gradient p-5 shadow-lg text-white">
             <h2 class="font-secondary fw-bold mb-4 display-6" style="letter-spacing: -1px;">Join a Team That Inspires Progress</h2>
             <p class="fs-5 mb-5 opacity-90">Grow your career in an environment that values innovation and collaboration</p>
-            <a href="#" class="btn bg-white text-atc-teal fw-bold rounded-pill px-5 py-3 fs-5 shadow-sm hover-lift">Open Roles</a>
+            <a (click)="scrollToRoles()" class="btn bg-white text-atc-teal fw-bold rounded-pill px-5 py-3 fs-5 shadow-sm hover-lift cursor-pointer">Open Roles</a>
           </div>
         </div>
       </div>
@@ -62,50 +62,81 @@
     </div>
   </section>
 
-  <!-- SECTION 4: Testimonials -->
-  <section class="testimonials-section py-5">
+  <!-- SECTION 4: Open Roles -->
+  <section id="open-roles" class="open-roles-section py-5 bg-light" *ngIf="showRolesSection">
     <div class="container py-5">
-      <h2 class="text-center font-secondary fw-bold display-4 mb-5 pb-4">What Our Employees Say</h2>
+      <h2 class="text-center font-secondary fw-bold display-4 mb-5">Open Roles</h2>
       
-      <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-9">
-          <!-- Testimonial Card -->
-          <div class="testimonial-card bg-white shadow-lg rounded-4 overflow-hidden d-flex flex-column flex-md-row position-relative">
-            <!-- Left Image -->
-            <div class="testimonial-img-wrapper" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-            
-            <!-- Right Content -->
-            <div class="testimonial-content p-4 p-md-5 d-flex flex-column justify-content-center bg-white flex-grow-1 position-relative">
-              <p class="fs-5 fst-italic mb-5 text-dark lh-lg position-relative z-1">
-                "Honestly, I wasn't sure about the job, but now I am confident. I've worked on exciting projects with some of the best people in the field."
-              </p>
-              <div class="testimonial-author mt-4 position-relative z-1">
-                <h3 class="font-secondary fw-bold text-dark mb-1 fs-3">- Vineet Bansal,</h3>
-                <h4 class="text-secondary fw-bold opacity-50 fs-3">Credit Control</h4>
+      <div class="row g-4" *ngIf="!isLoading">
+        <div class="col-md-6 col-lg-4" *ngFor="let job of jobs">
+          <div class="job-card bg-white p-4 rounded-4 shadow-sm h-100 border-0 hover-lift">
+            <div class="job-header mb-3">
+              <h3 class="fw-bold text-dark fs-4 mb-2">{{ job.title }}</h3>
+              <div class="d-flex gap-2">
+                <span class="badge bg-teal-soft text-teal rounded-pill">{{ job.department }}</span>
+                <span class="badge bg-light text-muted rounded-pill">{{ job.location }}</span>
               </div>
             </div>
-          </div>
-          
-          <!-- Controls -->
-          <div class="d-flex align-items-center justify-content-center gap-4 mt-5 pt-3 position-relative">
-            <button class="nav-btn bg-transparent rounded-circle d-flex align-items-center justify-content-center border border-secondary text-secondary">
-              <i class="bi bi-arrow-left"></i>
-            </button>
-            <div class="slider-dots d-flex gap-2">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
+            <p class="text-muted small mb-4 line-clamp-3">{{ job.description }}</p>
+            <div class="job-footer mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-dark">{{ job.salaryRange || 'Competitive' }}</span>
+              <button class="btn btn-atc-teal rounded-pill px-4" (click)="openApplyModal(job)">Apply Now</button>
             </div>
-            <button class="nav-btn bg-transparent rounded-circle d-flex align-items-center justify-content-center border border-secondary text-secondary">
-              <i class="bi bi-arrow-right"></i>
-            </button>
           </div>
         </div>
+        <!-- No Jobs -->
+        <div class="col-12 text-center py-5" *ngIf="jobs.length === 0">
+          <h3 class="text-muted">No open roles at the moment</h3>
+          <p>Please check back later or send your resume to careers@trueload.com</p>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="text-center py-5" *ngIf="isLoading">
+        <div class="spinner-border text-atc-teal"></div>
       </div>
     </div>
   </section>
+
+  <!-- Apply Modal -->
+  <div class="apply-modal-overlay" *ngIf="showApplyModal" (click)="closeApplyModal()">
+    <div class="apply-modal bg-white rounded-4 shadow-lg p-4 p-md-5 position-relative" (click)="$event.stopPropagation()">
+      <button class="close-btn border-0 bg-transparent position-absolute top-0 end-0 m-3" (click)="closeApplyModal()">
+        <i class="bi bi-x-lg fs-5"></i>
+      </button>
+
+      <div class="modal-header-content text-center mb-4">
+        <h2 class="fw-bold font-secondary mb-1">Apply for Position</h2>
+        <h4 class="text-atc-teal fw-bold" *ngIf="selectedJob">{{ selectedJob.title }}</h4>
+      </div>
+
+      <form (ngSubmit)="submitApplication()" #applyForm="ngForm" class="row g-3">
+        <div class="col-12">
+          <label class="form-label fw-bold">Full Name</label>
+          <input type="text" name="fullName" class="form-control rounded-3 p-3" placeholder="Enter your full name" [(ngModel)]="application.fullName" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Email Address</label>
+          <input type="email" name="email" class="form-control rounded-3 p-3" placeholder="Enter your email" [(ngModel)]="application.email" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Phone Number</label>
+          <input type="tel" name="phone" class="form-control rounded-3 p-3" placeholder="Enter your phone" [(ngModel)]="application.phone" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label fw-bold">Experience (Years)</label>
+          <input type="text" name="experience" class="form-control rounded-3 p-3" placeholder="e.g. 2+ Years" [(ngModel)]="application.experience" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label fw-bold">Resume Link (Optional)</label>
+          <input type="url" name="resumeUrl" class="form-control rounded-3 p-3" placeholder="Link to your resume/portfolio" [(ngModel)]="application.resumeUrl">
+        </div>
+        <div class="col-12 mt-4">
+          <button type="submit" class="btn btn-atc-teal w-100 rounded-pill py-3 fw-bold fs-5 shadow-sm" [disabled]="!applyForm.valid">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </main>
 
 <app-footer></app-footer>

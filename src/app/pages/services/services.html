@@ -8,203 +8,172 @@
       <div class="row w-100 align-items-end">
         <div class="col-lg-8">
           <h1 class="display-3 fw-bold text-white mb-2" style="font-family: var(--font-secondary); letter-spacing: -1px;">
-            Expert Freight Services You Can Trust
+            Comprehensive Logistics Solutions
           </h1>
-          <p class="text-white fs-5 fw-bold mb-4">Fast, safe, and customised logistics solutions for all your global and local shipping needs.</p>
-          <a href="#" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-lg text-white" style="font-size: 1.1rem;">Learn more</a>
-        </div>
-        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-          <a href="#" class="btn bg-white text-dark rounded-pill px-4 py-3 fw-bold shadow-sm d-inline-flex align-items-center gap-2 hover-lift">
-            <i class="bi bi-download text-atc-teal"></i>
-            Download Brochure
-          </a>
+          <p class="text-white fs-5 fw-bold mb-4">Safe, timely, and optimized movement of goods designed for flexibility and scale.</p>
+          <button (click)="openQuoteModal()" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-lg text-white" style="font-size: 1.1rem;">Get Started</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Service Details Section -->
+  <!-- Comprehensive Range of Solutions -->
   <section class="service-details py-5">
     <div class="container-fluid px-4 px-lg-5 py-4">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-white font-secondary">We offer a comprehensive range of logistics solutions</h2>
+        <div class="atc-line mx-auto"></div>
+      </div>
+      
       <div class="row g-4">
-        
-        <!-- Hira Express -->
+        <!-- Freight Transportation -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('images/service-freight.png');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">Freight Transportation</h3>
+              <p class="text-white opacity-75 mb-0">Safe, timely movement of goods with optimized routing and expert handling.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FTL & Part Load (LTL) -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">FTL & Part Load (LTL)</h3>
+              <p class="text-white opacity-75 mb-0">Flexible options for both bulk shipments and smaller consignments.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODC & Specialized Cargo Handling -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('images/service-odc.png');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">ODC & Specialized Cargo Handling</h3>
+              <p class="text-white opacity-75 mb-0">Expertise in transporting oversized and sensitive goods requiring special care.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warehousing & Distribution -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1587293855526-d72af99b6914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">Warehousing & Distribution</h3>
+              <p class="text-white opacity-75 mb-0">Secure storage and efficient distribution to streamline your supply chain.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Express Delivery -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">Express Delivery</h3>
+              <p class="text-white opacity-75 mb-0">Priority handling for time-sensitive shipments.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multimodal Logistics Solutions -->
+        <div class="col-lg-4 col-md-6">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d246603a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">Multimodal Logistics Solutions</h3>
+              <p class="text-white opacity-75 mb-0">Integrated transport across road, rail, and other modes for efficiency and reach.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Tracking -->
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="detail-card glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1590494165264-1ebe3602eb80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="card-content p-4">
+              <h3 class="text-white fw-bold mb-3 font-secondary">Real-Time Tracking</h3>
+              <p class="text-white opacity-75 mb-0">Live updates and complete shipment visibility from pickup to delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Clients Section -->
+  <section class="clients-section py-5 bg-dark">
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold text-white font-secondary">Our Clients</h2>
+        <p class="text-white opacity-75">We are proud to work with leading brands across industries</p>
+        <div class="atc-line mx-auto"></div>
+      </div>
+      <div class="row g-4 justify-content-center align-items-center">
+        <div class="col-6 col-md-3 text-center">
+          <div class="client-box p-4 rounded-3 shadow-sm h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white mb-0 opacity-90">Radiohead Brands Pvt. Ltd. (Jimmy’s Cocktails)</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="client-box p-4 rounded-3 shadow-sm h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white mb-0 opacity-90">TLFC Food & Beverages Pvt. Ltd. (The Little Farm Company)</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="client-box p-4 rounded-3 shadow-sm h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white mb-0 opacity-90">Global Parachem LLP</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <div class="client-box p-4 rounded-3 shadow-sm h-100 d-flex align-items-center justify-content-center">
+            <h5 class="text-white mb-0 opacity-90">Rupa & Company Ltd.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p class="text-white opacity-50 small">...and many more trusted partners</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section: Book / Quote -->
+  <section id="book-now" class="cta-section py-5">
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="row g-4">
         <div class="col-lg-6">
-          <div class="detail-card d-flex">
-            <div class="card-img-left" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');"></div>
-            <div class="card-content p-4 p-xl-5">
-              <h3 class="text-white fw-bold mb-3 font-secondary">Hira Express</h3>
-              <p class="text-white opacity-75 mb-0">
-                In a rush to get your shipment delivered fast? We make it possible with our lightning-fast delivery. We offer overnight or next-day dispatch to ensure your order moves swiftly for both local and international destinations.
-              </p>
-            </div>
+          <div class="cta-card p-5 h-100 rounded-4 shadow-lg text-white d-flex flex-column" style="background: linear-gradient(135deg, #0d4140 0%, #1a5a58 100%);">
+            <h2 class="fw-bold mb-4 font-secondary">Book Your Shipment</h2>
+            <p class="mb-4 opacity-90">Quick and hassle-free booking—just share pickup & delivery locations, goods type, and timeline.</p>
+            <ul class="list-unstyled mb-5">
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Pickup & delivery locations</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Type of goods</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Weight/volume</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Delivery timeline</li>
+            </ul>
+            <button (click)="openQuoteModal()" class="btn btn-atc-teal mt-auto rounded-pill px-5 py-3 fw-bold">Book Now</button>
           </div>
         </div>
-
-        <!-- Project Freight -->
         <div class="col-lg-6">
-          <div class="detail-card d-flex">
-            <div class="card-img-left" style="background-image: url('https://images.unsplash.com/photo-1541888069502-311a36173a7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');"></div>
-            <div class="card-content p-4 p-xl-5">
-              <h3 class="text-white fw-bold mb-3 font-secondary">Project Freight</h3>
-              <p class="text-white opacity-75 mb-0">
-                Every freight project is unique, and the larger ones demand an extra level of care and attention.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- General Freight -->
-        <div class="col-lg-6">
-          <div class="detail-card d-flex">
-            <div class="card-img-left" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');"></div>
-            <div class="card-content p-4 p-xl-5">
-              <h3 class="text-white fw-bold mb-3 font-secondary">General Freight</h3>
-              <p class="text-white opacity-75 mb-0">
-                What makes a good delivery? Fast service, careful handling, 24/7 support, live tracking, and a trusted logistic partner—our general freight services offer all this and more.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Customized Freight -->
-        <div class="col-lg-6">
-          <div class="detail-card d-flex position-relative">
-            <div class="card-img-left" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d246603a1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');"></div>
-            <div class="card-content p-4 p-xl-5">
-              <h3 class="text-white fw-bold mb-3 font-secondary">Customized Freight</h3>
-              <p class="text-white opacity-75 mb-0">
-                No two shipments are alike, and we understand that. That's why we offer customised freight services to meet your unique needs.
-              </p>
-            </div>
-            
-            <!-- Arrow Button -->
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- SECTION 3: General Freight Detailed -->
-  <section id="general-freight" class="detailed-service position-relative">
-    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="container-fluid px-0 h-100 position-relative">
-      <div class="row h-100 m-0">
-        <div class="col-lg-7 col-xl-6 p-0 h-100">
-          <div class="service-detail-card overlay-left h-100 d-flex flex-column justify-content-center p-5 text-white shadow-lg">
-            <div class="content-wrapper ms-lg-5 px-lg-4">
-              <h2 class="font-secondary fw-bold mb-4 display-5">General Freight</h2>
-              <p class="fs-5 opacity-90 lh-lg mb-4">
-                What makes a good delivery? Fast service, careful handling, 24/7 support, live tracking, and a trusted logistic partner—our general freight services offer all this and more. We combine speed and expert handling to make every delivery smooth and reliable.
-              </p>
-              <p class="fs-5 opacity-90 lh-lg mb-5">
-                Whether it's a local drop-off or a city-to-city delivery, our team handles every item with care, from packing to transport. You can also live track the shipment to stay updated on its exact location and progress at all times. In case of any trouble, our 24/7 customer service is always ready to help.
-              </p>
-              <a href="#" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-sm hover-lift">Request quote</a>
-            </div>
+          <div class="cta-card p-5 h-100 rounded-4 shadow-lg text-white d-flex flex-column" style="background: linear-gradient(135deg, #151515 0%, #222 100%); border: 1px solid rgba(255,255,255,0.1);">
+            <h2 class="fw-bold mb-4 font-secondary">Request a Custom Quote</h2>
+            <p class="mb-4 opacity-90">Get pricing tailored to your exact needs with transparent rates and no hidden charges.</p>
+            <ul class="list-unstyled mb-5">
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Transparent rates</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> No hidden charges</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Optimized solutions for bulk shipments</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-atc-teal-light me-2"></i> Recurring shipment discounts</li>
+            </ul>
+            <button (click)="openQuoteModal()" class="btn btn-outline-white mt-auto rounded-pill px-5 py-3 fw-bold">Get Custom Quote</button>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 4: Hira Express Detailed -->
-  <section id="hira-express" class="detailed-service position-relative">
-    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="container-fluid px-0 h-100 position-relative">
-      <div class="row h-100 justify-content-end m-0">
-        <div class="col-lg-7 col-xl-6 p-0 h-100">
-          <div class="service-detail-card overlay-right h-100 d-flex flex-column justify-content-center p-5 text-white shadow-lg">
-            <div class="content-wrapper me-lg-5 px-lg-4 text-start">
-              <h2 class="font-secondary fw-bold mb-4 display-5">Hira Express</h2>
-              <p class="fs-5 opacity-90 lh-lg mb-4">
-                In a rush to get your shipment delivered fast? We make it possible with our lightning-fast delivery. We offer overnight or next-day dispatch to ensure your order moves swiftly for both local and international destinations.
-              </p>
-              <p class="fs-5 opacity-90 lh-lg mb-5">
-                Our professionals handle each shipment with care to ensure faster and safer delivery, giving you peace of mind every step of the way. What more? You also get tracking links and regular updates to stay informed and in control of your package's journey from start to finish.
-              </p>
-              <a href="#" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-sm hover-lift">Request quote</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: Project Freight Detailed -->
-  <section id="project-freight" class="detailed-service position-relative">
-    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
-      <div class="coming-soon-overlay d-flex align-items-center justify-content-end pe-5 h-100">
-        <h1 class="coming-soon-text text-white opacity-25 display-1 fw-bold">Coming soon</h1>
-      </div>
-    </div>
-    <div class="container-fluid px-0 h-100 position-relative">
-      <div class="row h-100 m-0">
-        <div class="col-lg-7 col-xl-6 p-0 h-100">
-          <div class="service-detail-card overlay-left h-100 d-flex flex-column justify-content-center p-5 text-white shadow-lg">
-            <div class="content-wrapper ms-lg-5 px-lg-4">
-              <h2 class="font-secondary fw-bold mb-4 display-5">Project Freight</h2>
-              <p class="fs-5 opacity-90 lh-lg mb-4">
-                Every freight project is unique, and the larger ones demand an extra level of care and attention. At True Load Logistical, we understand this, and that is why we offer careful transportation of heavy machinery from factories to project sites, including dams, flyovers, power stations, and industrial estates.
-              </p>
-              <p class="fs-5 opacity-90 lh-lg mb-5">
-                We handle everything from route planning and load securing to real-time tracking and on-site coordination. This means there will be no more complex routines or issues with the permits! With our expertise and care, your project freight will arrive on time and in perfect condition.
-              </p>
-              <a href="#" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-sm hover-lift">Request quote</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 6: Customised Freight Detailed -->
-  <section id="customised-freight" class="detailed-service position-relative">
-    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1591768793355-74d7af73815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="container-fluid px-0 h-100 position-relative">
-      <div class="row h-100 justify-content-end m-0">
-        <div class="col-lg-7 col-xl-6 p-0 h-100">
-          <div class="service-detail-card overlay-right h-100 d-flex flex-column justify-content-center p-5 text-white shadow-lg">
-            <div class="content-wrapper me-lg-5 px-lg-4">
-              <h2 class="font-secondary fw-bold mb-4 display-5">Customised Freight</h2>
-              <p class="fs-5 opacity-90 lh-lg mb-4">
-                No two shipments are alike, and we understand that. That's why we offer customised freight services to meet your unique needs. Be it fragile cargo, oversized machinery, or high-value electronics, we provide tailored solutions that ensure your goods are transported safely and efficiently.
-              </p>
-              <p class="fs-5 opacity-90 lh-lg mb-5">
-                We start by understanding the unique requirements of your cargo. Our dedicated team handles everything from fashion and textiles to pharmaceuticals and publishing materials, making sure every detail is covered for a smooth and reliable transport experience.
-              </p>
-              <a href="#" class="btn btn-atc-teal rounded-pill px-5 py-3 fw-bold shadow-sm hover-lift">Request quote</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 7: Warehouse Service -->
-  <section class="warehouse-service-section py-5 position-relative overflow-hidden">
-    <div class="service-bg-warehouse" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="container-fluid py-5 h-100 d-flex align-items-center justify-content-center position-relative z-1">
-      <div class="warehouse-box p-5 text-center text-white shadow-lg rounded-4">
-        <div class="box-outline"></div>
-        <h2 class="font-secondary fw-bold mb-4 display-5 text-uppercase">Warehouse Service</h2>
-        <p class="fs-5 opacity-90 lh-lg mb-4 px-lg-5">
-          At True Load, we understand that efficient storage is the backbone of successful logistics. That is why, we have not just created warehouses but modern storage spaces where your shipments are safely kept before delivery. For this, we have invested in the latest technology for inventory tracking, ensuring that your packages are always accounted for, easily accessible, and safe.
-        </p>
-        <p class="fs-5 opacity-90 lh-lg mb-5 px-lg-5">
-          We don't just stop at storage. With a team of experienced professionals, we manage every aspect of your warehousing process — be it receiving parcels to quality checks or timely dispatch. Our goal is to make your operations smoother, cut costs, and give you peace of mind, so you can focus on growing your business.
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="#" class="btn bg-white text-atc-teal fw-bold rounded-pill px-5 py-3 shadow-sm hover-lift">Request quote</a>
-          <a href="#" class="btn btn-outline-white fw-bold rounded-pill px-5 py-3 shadow-sm hover-lift d-flex align-items-center gap-2">
-            <i class="bi bi-download"></i> Download Brochure
-          </a>
-        </div>
-      </div>
-    </div>
-    
-
   </section>
 </main>
 

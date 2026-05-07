@@ -148,25 +148,27 @@
 /* Responsive adjustments */
 @media (max-width: 1199.98px) {
   .giant-join-us {
-    font-size: 10rem;
+    font-size: 8rem;
     left: 10px;
+    top: 10%;
   }
 }
 
 @media (max-width: 991.98px) {
   .giant-join-us {
-    font-size: 8rem;
+    font-size: 6rem;
     left: 20px;
+    opacity: 0.2; /* Fade it out more on mobile */
   }
-  .bg-dark-gradient-right {
-    background: rgba(20, 30, 30, 0.9);
-    border-radius: 0;
-    margin-right: 0;
+  .bg-dark-gradient-right, .bg-dark-gradient-left {
+    background: rgba(20, 30, 30, 0.95);
+    border-radius: 20px;
+    margin: 0;
+    padding: 3rem 2rem !important;
   }
-  .bg-dark-gradient-left {
-    background: rgba(20, 30, 30, 0.9);
-    border-radius: 0;
-    margin-left: 0;
+  .who-are-we, .growth-mission {
+    height: auto;
+    padding: 4rem 0;
   }
   .testimonial-card {
     height: auto;
@@ -174,16 +176,104 @@
   }
   .testimonial-img-wrapper {
     width: 100%;
-    height: 350px;
+    height: 300px;
   }
 }
 
 @media (max-width: 767.98px) {
+  .career-hero {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
   .giant-join-us {
-    font-size: 5rem;
-    top: 10%;
+    font-size: 4rem;
+    top: 50px;
   }
   .bg-dark-gradient {
-    border-top-right-radius: 40px;
+    border-radius: 20px;
+    padding: 2rem !important;
   }
+  .display-4 {
+    font-size: 2rem;
+  }
+}
+
+/* Open Roles Section */
+.bg-teal-soft {
+  background-color: rgba(66, 178, 158, 0.1);
+}
+
+.text-teal {
+  color: #42b29e;
+}
+
+.job-card {
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+/* Apply Modal */
+.apply-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.apply-modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.text-atc-teal {
+  color: #42b29e;
+}
+
+.btn-atc-teal {
+  background-color: #42b29e;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-atc-teal:hover {
+  background-color: #359886;
+  color: white;
+}
+
+.btn-atc-teal:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-control:focus {
+  border-color: #42b29e;
+  box-shadow: 0 0 0 0.25rem rgba(66, 178, 158, 0.25);
 }

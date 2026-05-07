@@ -3,7 +3,6 @@ import { NavbarComponent } from '../../components/navbar/navbar';
 import { Hero } from '../../components/hero/hero';
 import { AboutSection } from '../../components/about-section/about-section';
 import { WhoWeDoItFor } from '../../components/who-we-do-it-for/who-we-do-it-for';
-import { CommitmentSection } from '../../components/commitment-section/commitment-section';
 import { ServicesSection } from '../../components/services-section/services-section';
 import { TestimonialsComponent } from '../../components/testimonials/testimonials';
 import { OrderCtaComponent } from '../../components/order-cta/order-cta';
@@ -17,7 +16,6 @@ import { Footer } from '../../components/footer/footer';
     Hero,
     AboutSection,
     WhoWeDoItFor,
-    CommitmentSection,
     ServicesSection,
     TestimonialsComponent,
     OrderCtaComponent,
@@ -26,4 +24,4 @@ import { Footer } from '../../components/footer/footer';
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
-export class HomeComponent {}
+export class HomeComponent { }
