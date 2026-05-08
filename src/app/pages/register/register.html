@@ -15,46 +15,65 @@
             <p class="text-white opacity-75">Join True Load today</p>
           </div>
 
-          <form>
+          <form (ngSubmit)="onSubmit()">
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Success Message -->
+            <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ successMessage }}
+            </div>
+
             <div class="row g-3">
               <div class="col-md-6 mb-3">
                 <label class="form-label text-white fw-bold">First Name</label>
-                <input type="text" class="form-control auth-input p-3" placeholder="John">
+                <input type="text" class="form-control auth-input p-3" placeholder="John" 
+                  [(ngModel)]="formData.firstName" name="firstName" required>
               </div>
               <div class="col-md-6 mb-3">
                 <label class="form-label text-white fw-bold">Last Name</label>
-                <input type="text" class="form-control auth-input p-3" placeholder="Doe">
+                <input type="text" class="form-control auth-input p-3" placeholder="Doe"
+                  [(ngModel)]="formData.lastName" name="lastName" required>
               </div>
             </div>
 
             <div class="mb-3">
               <label class="form-label text-white fw-bold">Email Address</label>
-              <input type="email" class="form-control auth-input p-3" placeholder="name@example.com">
+              <input type="email" class="form-control auth-input p-3" placeholder="name@example.com"
+                [(ngModel)]="formData.email" name="email" required>
             </div>
 
             <div class="mb-3">
               <label class="form-label text-white fw-bold">Phone Number</label>
-              <input type="tel" class="form-control auth-input p-3" placeholder="+91 98765 43210">
+              <input type="tel" class="form-control auth-input p-3" placeholder="+91 98765 43210"
+                [(ngModel)]="formData.phone" name="phone" required>
             </div>
             
             <div class="mb-3">
               <label class="form-label text-white fw-bold">Password</label>
-              <input type="password" class="form-control auth-input p-3" placeholder="Create a strong password">
+              <input type="password" class="form-control auth-input p-3" placeholder="Create a strong password"
+                [(ngModel)]="formData.password" name="password" required>
             </div>
 
             <div class="mb-4">
               <label class="form-label text-white fw-bold">Confirm Password</label>
-              <input type="password" class="form-control auth-input p-3" placeholder="Confirm your password">
+              <input type="password" class="form-control auth-input p-3" placeholder="Confirm your password"
+                [(ngModel)]="formData.confirmPassword" name="confirmPassword" required>
             </div>
 
             <div class="mb-5 form-check">
-              <input type="checkbox" class="form-check-input custom-checkbox" id="terms">
+              <input type="checkbox" class="form-check-input custom-checkbox" id="terms" required>
               <label class="form-check-label text-white opacity-75 ms-2" for="terms">
                 I agree to the <a href="#" class="text-atc-gold hover-underline text-decoration-none">Terms and Conditions</a>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-atc-teal w-100 rounded-pill py-3 fw-bold fs-5 mb-4 shadow">Register Now</button>
+            <button type="submit" class="btn btn-atc-teal w-100 rounded-pill py-3 fw-bold fs-5 mb-4 shadow" 
+              [disabled]="isLoading">
+              {{ isLoading ? 'Registering...' : 'Register Now' }}
+            </button>
             
             <p class="text-center text-white opacity-75 mb-0">
               Already have an account? <a routerLink="/login" class="text-atc-gold text-decoration-none fw-bold ms-1 hover-underline">Log in here</a>

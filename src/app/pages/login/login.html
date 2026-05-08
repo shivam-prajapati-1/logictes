@@ -16,10 +16,21 @@
             <p class="text-white opacity-75">Log in to your True Load account</p>
           </div>
 
-          <form>
+          <form (ngSubmit)="onSubmit()">
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Success Message -->
+            <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ successMessage }}
+            </div>
+
             <div class="mb-4">
               <label class="form-label text-white fw-bold">Email Address</label>
-              <input type="email" class="form-control auth-input p-3" placeholder="name@example.com">
+              <input type="email" class="form-control auth-input p-3" placeholder="name@example.com"
+                [(ngModel)]="formData.email" name="email" required>
             </div>
 
             <div class="mb-4">
@@ -27,16 +38,20 @@
                 <label class="form-label text-white fw-bold mb-0">Password</label>
                 <a href="#" class="text-atc-teal text-decoration-none small fw-bold">Forgot Password?</a>
               </div>
-              <input type="password" class="form-control auth-input p-3" placeholder="Enter your password">
+              <input type="password" class="form-control auth-input p-3" placeholder="Enter your password"
+                [(ngModel)]="formData.password" name="password" required>
             </div>
 
             <div class="mb-5 form-check">
-              <input type="checkbox" class="form-check-input custom-checkbox" id="rememberMe">
+              <input type="checkbox" class="form-check-input custom-checkbox" id="rememberMe"
+                [(ngModel)]="rememberMe" name="rememberMe">
               <label class="form-check-label text-white opacity-75 ms-2" for="rememberMe">Remember me</label>
             </div>
 
-            <button type="submit" class="btn btn-atc-teal w-100 rounded-pill py-3 fw-bold fs-5 mb-4 shadow">Log
-              In</button>
+            <button type="submit" class="btn btn-atc-teal w-100 rounded-pill py-3 fw-bold fs-5 mb-4 shadow"
+              [disabled]="isLoading">
+              {{ isLoading ? 'Logging in...' : 'Log In' }}
+            </button>
 
             <p class="text-center text-white opacity-75 mb-0">
               Don't have an account? <a routerLink="/register"

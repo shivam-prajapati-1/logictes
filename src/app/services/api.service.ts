@@ -38,4 +38,18 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/Career/apply`, applicationData);
   }
 
+  // Authentication endpoints
+  checkAuth() {
+    return this.http.get(`${this.baseUrl}/Auth`);
+  }
+
+  login(email: string, password: string) {
+    return this.http.post(`${this.baseUrl}/Auth/login`, { email, password });
+  }
+
+  // User registration
+  registerUser(userData: any) {
+    return this.http.post(`${this.baseUrl}/User`, userData);
+  }
+
 }

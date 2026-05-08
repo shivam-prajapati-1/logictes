@@ -86,21 +86,61 @@ export class TrackingResultComponent implements OnInit {
     ];
 
     // Map timeline (assuming backend returns an array of history)
-    if (data.history && Array.isArray(data.history)) {
-      this.trackingTimeline = data.history.map((h: any) => ({
-        status: h.status,
-        date: h.date,
-        location: h.location,
-        completed: true,
-        icon: this.getIconForStatus(h.status)
-      }));
-    } else {
-      // Create a default timeline if history is missing
-      this.trackingTimeline = [
-        { status: 'Consignment Booked', date: data.bookingDate || 'N/A', icon: 'LR', isText: true, completed: true },
-        { status: data.status, date: 'Current Status', icon: 'bi-truck', isText: false, completed: true }
-      ];
+   if (data.tracking) {
+
+  const t = data.tracking;
+
+  this.trackingTimeline = [
+
+    {
+      status: 'Consignment Booked',
+      date: this.formatDate(t.bookingDate),
+      icon: 'LR',
+      completed: true
+    },
+
+    {
+      status: 'Consignment In Transit',
+      date: this.formatDate(t.inTransitDate),
+      icon: 'bi-truck',
+      completed: true
+    },
+
+    {
+      status: 'Reached at Delivery Branch',
+      date: this.formatDate(t.reachedBranchDate),
+      icon: 'bi-building',
+      completed: true
+    },
+
+    {
+      status: 'Consignment Out for Delivery',
+      date: this.formatDate(t.outForDeliveryDate),
+      icon: 'bi-truck-flatbed',
+      completed: true
+    },
+
+    {
+      status: 'Consignment Delivered',
+      date: this.formatDate(t.deliveredDate),
+      icon: 'bi-box-seam-fill',
+      completed: true
     }
+
+  ];
+
+} else {
+
+  this.trackingTimeline = [
+    {
+      status: 'Tracking Not Available',
+      date: 'N/A',
+      icon: 'bi-info-circle',
+      completed: false
+    }
+  ];
+
+}
   }
 
   getIconForStatus(status: string): string {
@@ -149,4 +189,13 @@ export class TrackingResultComponent implements OnInit {
       this.newTrackingNumber = '';
     }
   }
+
+  formatDate(date: string): string {
+
+  if (!date) return 'N/A';
+
+  const d = new Date(date);
+
+  return d.toLocaleDateString('en-GB');
+}
 }
